@@ -17,6 +17,7 @@ const Typewriter = () => {
                 // Restart animation when scrolled into view
                 setCurrentText1('');
                 setCurrentText2('');
+                setCurrentText3('');
                 setPhase(1);
             }
         }, { threshold: 0.5 });
@@ -241,7 +242,7 @@ export default function Home() {
                     <div className="hero-content">
                         <Typewriter />
                         <p>Providing expert general medicine for over 15 years. Schedule a consultation and experience truly personalized medical attention.</p>
-                        <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+                        <div className="hero-buttons" style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
                             <a href="#appointment" className="btn btn-primary">
                                 Schedule Visit <ChevronRight size={16} style={{marginLeft: '6px'}}/>
                             </a>
@@ -249,12 +250,7 @@ export default function Home() {
                         </div>
 
                         {/* Trust Indicators */}
-                        <div className="trust-badges">
-                        <div className="trust-badge"><ShieldCheck size={20} /> <span>Premium Care</span></div>
-                        <div className="trust-badge"><Award size={20} /> <span>Certified Clinic</span></div>
-                        <div className="trust-badge"><PhoneCall size={20} /> <span>24/7 Support</span></div>
-                    </div>
-                    </div>
+                        </div>
                 </div>
             </section>
 
@@ -354,7 +350,7 @@ export default function Home() {
                                     </div>
                                     <div className="form-group">
                                         <label>Preferred Date</label>
-                                        <input type="date" className="form-control" required min={new Date().toISOString().split('T')[0]} value={formData.date} onChange={e => setFormData({...formData, date: e.target.value})} />
+                                        <input type={dateType} placeholder="Select Date" onFocus={() => setDateType('date')} onBlur={(e) => {if(!e.target.value) setDateType('text')}} className="form-control" required min={new Date().toISOString().split('T')[0]} value={formData.date} onChange={e => setFormData({...formData, date: e.target.value})} />
                                     </div>
                                     <div className="form-group">
                                         <label>Preferred Time Slot</label>
