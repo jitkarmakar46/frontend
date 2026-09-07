@@ -198,17 +198,7 @@ export default function Home() {
     return (
         <div>
 
-            {/* Medical Top Bar */}
-            <div className="top-bar">
-                <div className="container top-bar-container">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <Activity size={14} /> Premium Care
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <PhoneCall size={14} /> Clinic Support: +91 98765 43210
-                    </div>
-                </div>
-            </div>
+            
 
             {/* Navbar */}
             <header className="navbar">
