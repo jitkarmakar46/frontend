@@ -169,7 +169,7 @@ export default function Home() {
         setTrackError('');
         setTrackResult(null);
         try {
-            const response = await axios.get(`ttps://doctor-s-backend-2.onrender.com/api/appointments/track/${trackId}`);
+            const response = await axios.get(`hhhttps://doctor-s-backend-2.onrender.com/api/appointments/track/${trackId}`);
             setTrackResult(response.data.appointment);
         } catch (err) {
             setTrackError('Could not find an appointment with that Tracking ID.');
