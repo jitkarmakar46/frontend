@@ -150,7 +150,7 @@ export default function Home() {
         e.preventDefault();
         setIsSubmitting(true);
         try {
-            const response = await axios.post('ttps://doctor-s-backend-2.onrender.com/api/appointments', formData);
+            const response = await axios.post('https://doctor-s-backend-2.onrender.com/api/appointments', formData);
             setBookingResult({
                 name: formData.patientName,
                 trackingId: response.data.trackingId
