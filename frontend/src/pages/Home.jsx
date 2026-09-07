@@ -111,7 +111,7 @@ export default function Home() {
                     setActiveSection(entry.target.id);
                 }
             });
-        }, { threshold: 0.3, rootMargin: '-10% 0px -50% 0px' });
+        }, { threshold: 0.3, rootMargin: '-120px 0px -50% 0px' });
 
         document.querySelectorAll('.section, #home').forEach(section => {
             observer.observe(section);
@@ -218,8 +218,8 @@ export default function Home() {
                         <nav className="nav-links" ref={navLinksRef}>
                             <a href="#home" data-nav="home" className={activeSection === 'home' ? 'active' : ''} onClick={(e) => { e.preventDefault(); setActiveSection('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Home</a>
                             <a href="#services" data-nav="services" className={activeSection === 'services' ? 'active' : ''} onClick={() => setActiveSection('services')}>Services</a>
-                            <a href="#track" data-nav="track" className={activeSection === 'track' ? 'active' : ''} onClick={() => setActiveSection('track')}>Track Status</a>
-                            <a href="#appointment" data-nav="appointment" className={activeSection === 'appointment' ? 'active' : ''} onClick={() => setActiveSection('appointment')}>Book Appointment</a>
+                            <a href="#track" data-nav="track" className={activeSection === 'track' ? 'active' : ''} onClick={() => setActiveSection('track')}>Track</a>
+                            <a href="#appointment" data-nav="appointment" className={activeSection === 'appointment' ? 'active' : ''} onClick={() => setActiveSection('appointment')}>Book</a>
                         </nav>
                         
                         {/* The Animated Glass Pill */}
@@ -250,19 +250,9 @@ export default function Home() {
 
                         {/* Trust Indicators */}
                         <div className="trust-badges">
-                            <div className="trust-badge">
-                                <ShieldCheck size={20} color="var(--medical-green)" /> 
-                                Certified Professional
-                            </div>
-                            <div className="trust-badge">
-                                <Award size={20} color="var(--medical-blue)" /> 
-                                15+ Years Experience
-                            </div>
-                            <div className="trust-badge">
-                                <Clock size={20} color="var(--medical-blue)" /> 
-                                Flexible Timings
-                            </div>
-                        </div>
+                        <div className="trust-badge"><ShieldCheck size={20} /> <span>Premium Care</span></div>
+                        <div className="trust-badge"><Award size={20} /> <span>Certified Clinic</span></div>
+                        <div className="trust-badge"><PhoneCall size={20} /> <span>24/7 Support</span></div>
                     </div>
                 </div>
             </section>
@@ -404,10 +394,10 @@ export default function Home() {
                                     
                                     <div className="tracker-box">
                                         <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--medical-blue)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Your Tracking ID</div>
-                                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', margin: '8px 0', background: 'rgba(2, 132, 199, 0.05)', padding: '8px 16px', borderRadius: '12px', width: 'max-content', marginLeft: 'auto', marginRight: 'auto' }}>
-                                            <div style={{ fontSize: '1.75rem', fontWeight: '600', color: 'var(--text-primary)', letterSpacing: '0.05em' }}>{bookingResult.trackingId}</div>
-                                            <button type="button" onClick={() => { navigator.clipboard.writeText(bookingResult.trackingId); alert('Tracking ID Copied!'); }} style={{ padding: '8px', background: 'var(--medical-blue)', border: 'none', borderRadius: '8px', cursor: 'pointer', color: 'white', display: 'flex', alignItems: 'center', boxShadow: '0 4px 12px rgba(2, 132, 199, 0.2)' }} title="Copy Tracking ID">
-                                                <Copy size={18} />
+                                        <div className="tracking-id-container">
+                                            <div className="tracking-id-text">{bookingResult.trackingId}</div>
+                                            <button type="button" onClick={() => { navigator.clipboard.writeText(bookingResult.trackingId); alert('Tracking ID Copied!'); }} className="copy-btn">
+                                                <Copy size={16} /> <span style={{ marginLeft: '6px', fontSize: '0.9rem', fontWeight: 600 }}>Copy</span>
                                             </button>
                                         </div>
                                     </div>
