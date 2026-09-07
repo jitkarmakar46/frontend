@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { HeartPulse, Stethoscope, Droplet, Clock, ChevronRight, Activity, Search, CheckCircle, PhoneCall, ShieldCheck, Award } from 'lucide-react';
+import { HeartPulse, Stethoscope, Droplet, Clock, ChevronRight, Activity, Search, CheckCircle, PhoneCall, ShieldCheck, Award, Copy } from 'lucide-react';
 
 const Typewriter = () => {
     const text1 = "Advanced Healthcare,";
@@ -404,7 +404,12 @@ export default function Home() {
                                     
                                     <div className="tracker-box">
                                         <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--medical-blue)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Your Tracking ID</div>
-                                        <div style={{ fontSize: '1.75rem', fontWeight: '600', color: 'var(--text-primary)', letterSpacing: '0.05em', margin: '8px 0' }}>{bookingResult.trackingId}</div>
+                                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', margin: '8px 0', background: 'rgba(2, 132, 199, 0.05)', padding: '8px 16px', borderRadius: '12px', width: 'max-content', marginLeft: 'auto', marginRight: 'auto' }}>
+                                            <div style={{ fontSize: '1.75rem', fontWeight: '600', color: 'var(--text-primary)', letterSpacing: '0.05em' }}>{bookingResult.trackingId}</div>
+                                            <button type="button" onClick={() => { navigator.clipboard.writeText(bookingResult.trackingId); alert('Tracking ID Copied!'); }} style={{ padding: '8px', background: 'var(--medical-blue)', border: 'none', borderRadius: '8px', cursor: 'pointer', color: 'white', display: 'flex', alignItems: 'center', boxShadow: '0 4px 12px rgba(2, 132, 199, 0.2)' }} title="Copy Tracking ID">
+                                                <Copy size={18} />
+                                            </button>
+                                        </div>
                                     </div>
 
                                     <button type="button" className="btn btn-secondary" style={{ width: '100%', marginTop: '32px' }} onClick={resetForm}>Book Another Visit</button>
