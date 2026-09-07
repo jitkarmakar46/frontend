@@ -474,46 +474,65 @@ body {
     font-size: 0.95rem;
 }
 @media (max-width: 768px) {
-    html, body {
+    /* 1. Fix "Laggy" scrolling (Turn off heavy graphics & snapping for mobile) */
+    html, body, .app-container {
         scroll-snap-type: none !important;
+        -webkit-scroll-snap-type: none !important;
     }
+    .service-card, .glass-panel, .navbar {
+        backdrop-filter: blur(4px) !important;
+        -webkit-backdrop-filter: blur(4px) !important;
+    }
+    .app-container {
+        animation: none !important; /* Stop heavy background animation to save battery/GPU */
+    }
+    
+    /* 2. Fix "Partial Viewing" (Stop navbar from hiding the sections) */
     .section, .hero {
         scroll-snap-align: none !important;
         min-height: auto !important;
-        padding: 60px 0 !important;
+        padding: 40px 0 !important;
+        scroll-margin-top: 220px !important; /* Forces the jump to stop way below the tall mobile navbar! */
     }
+
+    /* 3. Stack Navigation neatly */
     .nav-container {
         flex-direction: column;
         height: auto;
-        padding: 20px 0;
-        gap: 20px;
+        padding: 15px 0;
+        gap: 12px;
     }
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
+        gap: 8px;
     }
     .nav-pill {
-        display: none;
+        display: none; 
     }
     .nav-links a {
         background: rgba(2, 132, 199, 0.05);
+        padding: 8px 16px;
+        border-radius: 8px;
     }
     .nav-links a.active {
         background: #e0f2fe;
     }
+
+    /* 4. Fit grids & text to small screens */
     .hero h1 {
         font-size: 2.2rem !important;
     }
     .section-title {
-        font-size: 2rem !important;
-        margin-bottom: 40px !important;
+        font-size: 1.8rem !important;
+        margin-bottom: 30px !important;
     }
     .glass-panel {
         padding: 24px 16px !important;
     }
     .services-grid {
         grid-template-columns: 1fr !important;
+        gap: 16px !important;
     }
     .trust-badges {
         flex-direction: column;
