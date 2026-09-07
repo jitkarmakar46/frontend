@@ -39,7 +39,7 @@ export default function AdminDashboard() {
     }, [token]);
 
     useEffect(() => {
-        if (token) {
+         useEffect(() => {      if (token) {          fetchAppointments();      }  }, [token, fetchAppointments]);
             fetchAppointments();
         }
     }, [token, fetchAppointments]);
