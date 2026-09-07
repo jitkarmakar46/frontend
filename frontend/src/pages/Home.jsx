@@ -254,6 +254,7 @@ export default function Home() {
                         <div className="trust-badge"><Award size={20} /> <span>Certified Clinic</span></div>
                         <div className="trust-badge"><PhoneCall size={20} /> <span>24/7 Support</span></div>
                     </div>
+                    </div>
                 </div>
             </section>
 
