@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
+html, body {
+    overscroll-behavior-y: none;
+    background-color: var(--medical-blue-light);
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+#root {
+    min-height: 100%;
+}
+
 :root {
     --bg-color: #f8fafc; /* Pristine cool white */
     --surface-color: #ffffff;
