@@ -38,11 +38,13 @@ export default function AdminDashboard() {
         }
     }, [token]);
 
-    useEffect(() => {
-         useEffect(() => {      if (token) {          fetchAppointments();      }  }, [token, fetchAppointments]);
-            fetchAppointments();
-        }
-    }, [token, fetchAppointments]);
+     useEffect(() => {
+     if (token) {
+         fetchAppointments();
+         const interval = setInterval(fetchAppointments, 5000);
+         return () => clearInterval(interval);
+     }
+ }, [token, fetchAppointments]);
 
     const handleLogin = async (e) => {
         e.preventDefault();
