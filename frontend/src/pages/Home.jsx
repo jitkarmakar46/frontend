@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom';
 import { HeartPulse, Stethoscope, Droplet, Clock, ChevronRight, Activity, Search, CheckCircle, PhoneCall, ShieldCheck, Award, Copy } from 'lucide-react';
 
 const Typewriter = () => {
-    const text1 = "Advanced Healthcare,";
-    const text2 = "Compassionate Healing.";
+    const text1 = "Advanced Healthcare";
+    const text2 = "Compassionate";
+    const text3 = "Healing";
     const [currentText1, setCurrentText1] = useState('');
     const [currentText2, setCurrentText2] = useState('');
-    const [phase, setPhase] = useState(0);
+    const [currentText3, setCurrentText3] = useState('');
+    const [phase, setPhase] = useState(1);
+    const [dateType, setDateType] = useState('text');
     const containerRef = useRef(null);
 
     useEffect(() => {
@@ -112,7 +115,7 @@ export default function Home() {
                     setActiveSection(entry.target.id);
                 }
             });
-        }, { threshold: 0.3, rootMargin: '-150px 0px -40% 0px' });
+        }, { threshold: 0.3, rootMargin: '-160px 0px -60% 0px' });
 
         document.querySelectorAll('.section, #home').forEach(section => {
             observer.observe(section);
@@ -342,7 +345,7 @@ export default function Home() {
                                     <div className="form-group">
                                         <label>Medical Department</label>
                                         <select className="form-control" required value={formData.department} onChange={e => setFormData({...formData, department: e.target.value})}>
-                                            <option value="" disabled>Select Concern</option>
+                                            <option value="" disabled>Select Concern &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
                                             <option value="General Checkup">General Checkup</option>
                                             <option value="Fever">Fever / Infection</option>
                                             <option value="Diabetes">Diabetes Follow-up</option>
@@ -355,7 +358,7 @@ export default function Home() {
                                     <div className="form-group">
                                         <label>Preferred Time Slot</label>
                                         <select className="form-control" required value={formData.time} onChange={e => setFormData({...formData, time: e.target.value})}>
-                                            <option value="" disabled>Select Time Slot</option>
+                                            <option value="" disabled>Select Time Slot &nbsp;&nbsp;&nbsp;&nbsp;</option>
                                             <option value="Morning">Morning (10:00 AM - 1:00 PM)</option>
                                             <option value="Evening">Evening (6:00 PM - 9:00 PM)</option>
                                         </select>
