@@ -150,7 +150,7 @@ export default function Home() {
         e.preventDefault();
         setIsSubmitting(true);
         try {
-            const response = await axios.post('http://localhost:5005/api/appointments', formData);
+            const response = await axios.post('ttps://doctor-s-backend-2.onrender.com/api/appointments', formData);
             setBookingResult({
                 name: formData.patientName,
                 trackingId: response.data.trackingId
@@ -169,7 +169,7 @@ export default function Home() {
         setTrackError('');
         setTrackResult(null);
         try {
-            const response = await axios.get(`http://localhost:5005/api/appointments/track/${trackId}`);
+            const response = await axios.get(`ttps://doctor-s-backend-2.onrender.com/api/appointments/track/${trackId}`);
             setTrackResult(response.data.appointment);
         } catch (err) {
             setTrackError('Could not find an appointment with that Tracking ID.');
