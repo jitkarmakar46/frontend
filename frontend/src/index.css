@@ -473,55 +473,75 @@ body {
     color: var(--text-tertiary);
     font-size: 0.95rem;
 }
+
+/* ========================================= */
+/* PERFECT MOBILE RESPONSIVENESS (SMARTPHONES) */
+/* ========================================= */
 @media (max-width: 768px) {
-    /* 1. Fix "Laggy" scrolling (Turn off heavy graphics & snapping for mobile) */
+    /* 1. Stop all lag and stuttering */
     html, body, .app-container {
         scroll-snap-type: none !important;
         -webkit-scroll-snap-type: none !important;
-    }
-    .service-card, .glass-panel, .navbar {
-        backdrop-filter: blur(4px) !important;
-        -webkit-backdrop-filter: blur(4px) !important;
-    }
-    .app-container {
-        animation: none !important; /* Stop heavy background animation to save battery/GPU */
+        animation: none !important; /* Kills the heavy background flow */
+        scroll-behavior: smooth !important;
     }
     
-    /* 2. Fix "Partial Viewing" (Stop navbar from hiding the sections) */
-    .section, .hero {
-        scroll-snap-align: none !important;
-        min-height: auto !important;
-        padding: 40px 0 !important;
-        scroll-margin-top: 220px !important; /* Forces the jump to stop way below the tall mobile navbar! */
+    /* Kill heavy glass blurs that lag mobile GPUs */
+    .service-card, .glass-panel, .navbar {
+        backdrop-filter: blur(2px) !important;
+        -webkit-backdrop-filter: blur(2px) !important;
+        background: rgba(255, 255, 255, 0.98) !important; /* Solidify background instead of blur */
     }
 
-    /* 3. Stack Navigation neatly */
+    /* 2. Keep the 4 Navigation Options in ONE line */
     .nav-container {
         flex-direction: column;
         height: auto;
-        padding: 15px 0;
-        gap: 12px;
+        padding: 10px 0;
+        gap: 10px;
+    }
+    .nav-links-container {
+        width: 100vw;
+        overflow-x: auto; /* Allow swiping sideways if screen is tiny */
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 5px;
     }
     .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
+        display: flex;
+        flex-direction: row; /* Force one line */
+        flex-wrap: nowrap !important; /* Never stack */
+        justify-content: flex-start;
+        width: max-content;
+        margin: 0 auto;
+        gap: 6px;
+        padding: 0 10px;
     }
     .nav-pill {
         display: none; 
     }
     .nav-links a {
+        white-space: nowrap; /* Prevent word breaking */
+        font-size: 0.85rem !important; /* Shrink text to fit */
+        padding: 8px 12px !important;
         background: rgba(2, 132, 199, 0.05);
-        padding: 8px 16px;
         border-radius: 8px;
     }
     .nav-links a.active {
-        background: #e0f2fe;
+        background: var(--medical-blue-light);
     }
 
-    /* 4. Fit grids & text to small screens */
+    /* 3. Fix the Cut-off headings when clicking buttons */
+    /* By making the navbar 1 line, its height is now ~90px. We need the section to stop 100px down */
+    .section, .hero {
+        scroll-snap-align: none !important;
+        min-height: auto !important;
+        padding: 40px 0 !important;
+        scroll-margin-top: 100px !important; /* Perfect alignment for the headings */
+    }
+
+    /* 4. Fit panels inside the screen */
     .hero h1 {
-        font-size: 2.2rem !important;
+        font-size: 2rem !important;
     }
     .section-title {
         font-size: 1.8rem !important;
@@ -529,6 +549,7 @@ body {
     }
     .glass-panel {
         padding: 24px 16px !important;
+        margin: 0 10px;
     }
     .services-grid {
         grid-template-columns: 1fr !important;
