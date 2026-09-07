@@ -539,6 +539,7 @@ body {
         border: 1px solid rgba(2, 132, 199, 0.2) !important;
         border-radius: 9999px !important;
         box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), 0 4px 10px rgba(2, 132, 199, 0.1) !important;
+        transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
     }
 
     /* Equal distance professional navigation grid */
@@ -609,5 +610,7 @@ body {
     }
 
     /* Tracking Box */
+    .tracking-id-container { flex-direction: column !important; justify-content: center !important; gap: 12px !important; text-align: center; }
+    .copy-btn { width: 100% !important; }
     .tracking-id-text { font-size: 1.25rem !important; }
 }
