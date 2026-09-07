@@ -111,7 +111,7 @@ export default function Home() {
                     setActiveSection(entry.target.id);
                 }
             });
-        }, { threshold: 0.3, rootMargin: '-120px 0px -50% 0px' });
+        }, { threshold: 0.3, rootMargin: '-150px 0px -40% 0px' });
 
         document.querySelectorAll('.section, #home').forEach(section => {
             observer.observe(section);
@@ -198,7 +198,7 @@ export default function Home() {
             <div className="top-bar">
                 <div className="container top-bar-container">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <Activity size={14} /> Comprehensive Patient Care
+                        <Activity size={14} /> Premium Care
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <PhoneCall size={14} /> Clinic Support: +91 98765 43210
